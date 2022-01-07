@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog da Hcode</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+         
+        <div id="app" v-cloak>
+
+            <div id="hcode-blog">
+        
+                <header>
+                
+                    <div class="container">
+                        <span  v-cloak v-show="isloged">Seja bem vindo {{user_name}} </span>
+                        <nav class="navbar">
+    
+                            <a href="#" class="text-center logo">
+                                <img src="./assets/img/logo.svg" alt="Hcode Treinamentos">
+                                Blog
+                            </a>
+    
+                            <a href="#" v-cloak @click="logout()" v-show="hidelogout" class="logout bg-danger text-white">Fazer logout</a>
+                            <a href="#" v-cloak @click="login()" v-show="hidelogin" class="login bg-primary  text-white">Fazer login</a>
+    
+                        </nav>
+    
+                    </div>
+    
+                </header>
+    
+                <section class="posts">
+    
+                    <div class="container">
+    
+                        <div class="row post-item">
+    
+                            <div v-cloak class="col-11" v-for="item in blog" >
+    
+                                <img  v-bind:src="item.img" alt="Post 1">
+                                <h2>{{ item.titulo }}</h2>
+                                <p>
+                                   
+                                   {{ item.conteudo | truncate(200) }}
+                                </p>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+
+
+        </div>
+         
+        
+            </section>
+
+            <footer>
+                <p class="text-center">Visite: <a href="https://youtube.com/hcodebrasi">Hcode Treinamentos</a></p>
+            </footer>
+
+        </div>
+
+        <script src="vue.js"></script>
+        <script src="node_modules/vue2-filters/dist/vue2-filters.js"></script>
+        <script src="index.js"></script>
+
+    </body>
+</html>
